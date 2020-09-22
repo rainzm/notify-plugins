@@ -127,6 +127,7 @@ func (s *Server) UseridByMobile(ctx context.Context, req *apis.UseridByMobilePar
 	}
 	log.Debugf("fetch userid by mobile %s", req.Mobile)
 	userId, err := s.Sender.FetchContact(ctx, req.Mobile)
+	log.Debugf("userid: %s, err: %v", userId, err)
 	if err != nil {
 		return rep, ConvertErr(err)
 	}
